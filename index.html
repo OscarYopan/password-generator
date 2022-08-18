@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+  <!--Style-->
+  <link rel="stylesheet" href="style.css">
+  <!--Style Font-AWesome-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--Font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+  <div class="container">
+    <h2>Password Generator</h2>
+    <div class="result-container">
+      <span class="result"></span>
+      <button class="btn" id="clip-board">
+        <i class="fa-solid fa-clipboard"></i>
+      </button>
+    </div>
+    <div class="settings">
+      <div class="setting">
+        <label>Password Length</label>
+        <input type="number" name="length" id="length" min="4" max="20" value="8">
+      </div>
+      <div class="setting">
+        <label>Include uppercase letters</label>
+        <input type="checkbox" name="uppercase" id="uppercase" checked>
+      </div>
+      <div class="setting">
+        <label>Include lowercase letters</label>
+        <input type="checkbox" name="lowercase" id="lowercase" checked>
+      </div>
+      <div class="setting">
+        <label>Include numbers</label>
+        <input type="checkbox" name="numbers" id="numbers" checked>
+      </div>
+      <div class="setting">
+        <label>Include symbols</label>
+        <input type="checkbox" name="symbols" id="symbols" checked>
+      </div>
+    </div>
+    <button class="btn btn-large" id="generate">Generate Password</button>
+  </div>  
+</body>
+<script src="script.js"></script>
+</html>
