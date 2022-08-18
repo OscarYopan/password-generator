@@ -60,6 +60,7 @@ h2 {
 }
 
 .result-container .result {
+  font-size: 1.6rem;
   word-wrap: break-word;
   max-width: calc(100% - 4rem);
 }

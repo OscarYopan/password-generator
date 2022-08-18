@@ -21,16 +21,41 @@ generateEl.addEventListener('click', () => {
   const numbers = numbersEl.checked
   const symbols = symbolsEl.checked
 
-  resultEl.inneText = generatePassword(length, upper, lower, numbers, symbols)
+  resultEl.innerText = generatePassword(length, upper, lower, numbers, symbols)
+})
+
+copyEl.addEventListener('click', () => {
+  const textArea = document.createElement('textarea')
+  const pasword = resultEl.innerText
+
+  if (!pasword) { return }
+  textArea.value = pasword
+  document.body.appendChild(textArea)
+  textArea.select()
+  document.execCommand('copy')
+  textArea.remove()
+  alert('Password copied!')
 })
 
 function generatePassword (length, upper, lower, number, symbol) {
-  let generatePassword = ''
+  let generatedPassword = ''
   const typesCount = upper + lower + number + symbol
   const typesArr = [{upper}, {lower}, {number}, {symbol}].filter(item => Object.values(item)[0])
 
-  console.log(typesCount);
-  console.log(typesArr);
+  if (typesCount === 0) {
+    return ''
+  }
+  
+  for (let i = 0; i < length; i += typesCount) {
+    typesArr.forEach(type => {
+      const funcName = Object.keys(type)[0]
+      generatedPassword += randomFunc[funcName]()
+    })
+  }
+
+  const finalPassword = generatedPassword.slice(0, length)
+
+  return finalPassword
 }
 
 function getRandomLowercase () {
